@@ -1,14 +1,17 @@
-# Use official PHP image
+# Use PHP 8.1 as the base image
 FROM php:8.1-cli
 
-# Set working directory
+# Set the working directory
 WORKDIR /app
 
-# Copy all project files
+# Copy all files to the container
 COPY . /app
 
-# Expose port 8080
+# Install yt-dlp
+RUN apt update && apt install -y yt-dlp
+
+# Expose port 8080 for Railway
 EXPOSE 8080
 
-# Start PHP built-in server
+# Start PHP's built-in server
 CMD ["php", "-S", "0.0.0.0:8080", "-t", "."]

@@ -1,0 +1,4 @@
+{
+  "buildCommand": "docker build -t my-php-app .",
+  "startCommand": "docker run -p 8080:8080 my-php-app"
+}
